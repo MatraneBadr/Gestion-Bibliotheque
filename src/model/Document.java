@@ -3,12 +3,10 @@ package model;
 
 public abstract class Document {
 	
-	protected int _idDocument;
 	protected String _nomDocument;
 	protected String _createurDocument;
 	
-	public Document(int numDoc, String nomDocument, String createurDocument) {
-		_idDocument = numDoc;
+	public Document(String nomDocument, String createurDocument) {
 		_nomDocument = nomDocument;
 		_createurDocument = createurDocument;
 	}
@@ -16,7 +14,6 @@ public abstract class Document {
 	
 	
 // Getter	
-	public abstract int getId();
 	public abstract String getNomDocument();
 	public abstract String getCreateurDocument();
 // Setter	

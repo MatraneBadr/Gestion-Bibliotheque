@@ -5,17 +5,12 @@ public class Livre extends Document {
 	private int _nombrePages;
 	
 	
-	public Livre(int numDoc, String nomDocument, String createurDocument, int nombrePages ) {
-		super(numDoc, nomDocument, createurDocument);
-		setNombrePages(nombrePages);
+	public Livre(String nomDocument, String createurDocument, int nombrePages ) {
+		super(nomDocument, createurDocument);
+		_nombrePages = nombrePages;
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public int getId() {
-		// TODO Auto-generated method stub
-		return _idDocument;
-	}
 
 	@Override
 	public String getNomDocument() {

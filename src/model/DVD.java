@@ -3,16 +3,12 @@ package model;
 public class DVD extends Document{
 	
 
-	public DVD(int numDoc, String nomDocument, String createurDocument) {
-		super(numDoc, nomDocument, createurDocument);
+	public DVD(String nomDocument, String createurDocument) {
+		super(nomDocument, createurDocument);
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public int getId() {
-		// TODO Auto-generated method stub
-		return _idDocument;
-	}
+	
 
 	@Override
 	public String getNomDocument() {

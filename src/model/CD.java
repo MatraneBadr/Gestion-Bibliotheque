@@ -2,16 +2,12 @@ package model;
 
 public class CD extends Document {
 
-	public CD(int numDoc, String nomDocument, String createurDocument) {
-		super(numDoc, nomDocument, createurDocument);
+	public CD(String nomDocument, String createurDocument) {
+		super(nomDocument, createurDocument);
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public int getId() {
-		// TODO Auto-generated method stub
-		return _idDocument;
-	}
+	
 
 	@Override
 	public String getNomDocument() {
