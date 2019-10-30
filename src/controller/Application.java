@@ -32,6 +32,8 @@ public class Application {
 	
 	public void choixCRUD(String typeTravail) {
 		int choice;
+		String nomDocument,auteurDocument;
+		int dureeDocument;
 		Scanner sc = new Scanner(System.in);
 		
 		
@@ -43,8 +45,11 @@ public class Application {
 		switch(choice) {
 			case 1:
 				 System.out.println("Quel est le nom de votre "+typeTravail);
+				 nomDocument = sc.next();
 				 System.out.println("Qui est l'auteur de votre "+typeTravail);
+				 auteurDocument = sc.next();
 				 System.out.println("Quel est la durée de votre "+typeTravail);
+				 dureeDocument = sc.nextInt();
 			case 2:
 				 System.out.println("Quel est le "+typeTravail+"que vous souhaitez supprimer?");
 			case 3:
