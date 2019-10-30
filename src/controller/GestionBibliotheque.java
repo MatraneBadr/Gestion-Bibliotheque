@@ -19,60 +19,27 @@ public class GestionBibliotheque {
 	
 	public void gestionBibliotheque() {
 		
-		while(quitter == false) {
-			
-			_documents.add(new Livre("Nom","Auteur",1));
-			//if(_documents.get(0) instanceof Livre) {
-			//	System.out.println("Coucou je suis un livre");
-			//}
-				
-			for(int i = 0; i<_documents.size();i++) {
-				System.out.println("On affire le livre n°"+(i+1));
-				System.out.println(_documents.get(i).getNomDocument());
-				System.out.println(_documents.get(i).getCreateurDocument());
-				System.out.println();
-			}
-			
-		}
 	}
 	
-	public void ajouterDoc(ArrayList<Document> doc, String typeDoc) {
-		String nom,auteur;
-		int duree;
-		Scanner sc = new Scanner(System.in);
-		switch(typeDoc) {
-			case "Livre":
-				System.out.println("Quel est le nom de votre livre:");
-				nom = sc.next();
-				System.out.println("Qui est l'auteur de votre livre:");
-				auteur = sc.next();
-				System.out.println("Combien de page fait votre livre:");
-				duree = sc.nextInt();
-				doc.add(new Livre(nom,auteur,duree));
+	public void ajouterDoc(ArrayList<Document> doc, String typeTravail, String nomDoc, String auteurDoc, int dureeDoc) {
+		switch(typeTravail) {
+			case "livre":
+				_documents.add(new Livre(nomDoc,auteurDoc,dureeDoc));
 				break;
 			case "CD":
-				System.out.println("Quel est le nom de l'album:");
-				nom = sc.next();
-				System.out.println("Qui est le chanteur :");
-				auteur = sc.next();
-				doc.add(new CD(nom,auteur));
+				_documents.add(new CD(nomDoc,auteurDoc));
 				break;
-				
 			case "DVD":
-				System.out.println("Quel est le nom du film:");
-				nom = sc.next();
-				System.out.println("Qui est le réalisateur de votre film:");
-				auteur = sc.next();
-				doc.add(new DVD(nom,auteur));
+				_documents.add(new DVD(nomDoc,auteurDoc));
 				break;
-			
+			default:
+				System.out.println("Pas compris");
+				break;
 		}
+			
 				
 	}
 }
-// Supprimer un document Modifier un document Emprunt d'un document Terminer le fait d'ajouter un document 
-// interface graphique 
-// ID qui se fait automatiquement
 	
 		
 	
