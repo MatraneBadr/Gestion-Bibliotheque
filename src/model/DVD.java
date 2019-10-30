@@ -5,7 +5,7 @@ public class DVD extends Document{
 	
 
 	public DVD(String id,String nomDocument, String createurDocument,int duree) {
-		super(id,nomDocument, createurDocument);
+		super(id,nomDocument, createurDocument,"DVD");
 		_dureeMin = duree;
 		// TODO Auto-generated constructor stub
 	}
@@ -52,6 +52,14 @@ public class DVD extends Document{
 	
 	public void setDureeDoc(int duree) {
 		this._dureeMin = duree;
+	}
+
+
+
+	@Override
+	public String getTypeDocument() {
+		// TODO Auto-generated method stub
+		return "DVD";
 	}
 
 }

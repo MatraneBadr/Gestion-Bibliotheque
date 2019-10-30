@@ -4,7 +4,7 @@ public class CD extends Document {
 	int _dureeMin;
 
 	public CD(String id,String nomDocument, String createurDocument,int duree) {
-		super(id,nomDocument, createurDocument);
+		super(id,nomDocument, createurDocument,"CD");
 		_dureeMin = duree;
 		// TODO Auto-generated constructor stub
 	}
@@ -51,6 +51,14 @@ public class CD extends Document {
 	
 	public void setDureeDoc(int duree) {
 		this._dureeMin = duree;
+	}
+
+
+
+	@Override
+	public String getTypeDocument() {
+		// TODO Auto-generated method stub
+		return "CD";
 	}
 	
 

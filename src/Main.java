@@ -11,9 +11,7 @@ public class Main {
 		//app.lancementApplication();
 		GestionBibliotheque gest = new GestionBibliotheque();
 		gest.remplirList(gest.getDocument());
-		gest.parcourirCD(gest.getDocument());
-		gest.supprimerDoc(gest.getDocument());
-		gest.parcourirCD(gest.getDocument());
+		gest.parcourirDoc(gest.getDocument(), "CD");
 		
 		
 		

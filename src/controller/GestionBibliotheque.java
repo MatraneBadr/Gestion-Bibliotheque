@@ -20,10 +20,10 @@ public class GestionBibliotheque {
 	}
 
 	
-	public void ajouterDoc(ArrayList<Document> doc, String typeTravail, String nomDoc, String auteurDoc, int dureeDoc) {
+	public void ajouterDoc(ArrayList<Document> doc, String typeDoc, String nomDoc, String auteurDoc, int dureeDoc) {
 		String id;
 		int i = doc.size()+1;
-		switch(typeTravail) {
+		switch(typeDoc) {
 			case "livre":
 				id = "L"+i;
 				_documents.add(new Livre(id,nomDoc,auteurDoc,dureeDoc));
@@ -42,10 +42,16 @@ public class GestionBibliotheque {
 		}
 		
 	}
-	public void parcourirDoc(ArrayList<Document> doc) {
+	public void parcourirDoc(ArrayList<Document> doc, String typeDocument) {
 		for(int i = 0 ; i<doc.size();i++) {
-			System.out.println("Id: "+doc.get(i).getIdDocument()+" Auteur: "+doc.get(i).getCreateurDocument()+
-					" Nom: "+doc.get(i).getNomDocument());
+			if(doc.get(i).getTypeDocument().equals(typeDocument))
+				System.out.println("ID: "+doc.get(i).getIdDocument()+ " Nom: "+doc.get(i).getNomDocument());
+		}
+	}
+	
+	public void parcourirAll(ArrayList<Document> doc) {
+		for(int i = 0 ; i<doc.size();i++) {
+			System.out.println("ID: "+doc.get(i).getIdDocument()+ " Nom: "+doc.get(i).getNomDocument());
 		}
 	}
 	
@@ -55,28 +61,6 @@ public class GestionBibliotheque {
 			doc.add(new CD("C"+i,"NomCd"+i,"AuteurCD"+i,1));
 			doc.add(new DVD("D"+i,"NomDVD"+i,"AuteurDVD"+i,1));
 			
-		}
-	}
-	
-	public void parcourirLivre(ArrayList<Document> doc) {
-		for(int i = 0 ; i<doc.size();i++) {
-			if(doc.get(i) instanceof Livre)
-				System.out.println("ID: "+doc.get(i).getIdDocument()+" Nom: "+doc.get(i).getNomDocument());
-		}
-	}
-	
-	public void parcourirDVD(ArrayList<Document> doc) {
-		for(int i = 0 ; i<doc.size();i++) {
-			if(doc.get(i) instanceof DVD) 
-				System.out.println("Id "+doc.get(i).getIdDocument()+" Nom: "+doc.get(i).getNomDocument());
-			
-		}
-	}
-	
-	public void parcourirCD(ArrayList<Document> doc) {
-		for(int i = 0 ; i<doc.size();i++) {
-			if(doc.get(i) instanceof CD)
-			System.out.println("ID: "+doc.get(i).getIdDocument()+" Nom: "+doc.get(i).getNomDocument());
 		}
 	}
 	
@@ -91,12 +75,7 @@ public class GestionBibliotheque {
 		}
 		
 	}
-	
-	
-
 			
-				
-	
 // GETTER	
 	public ArrayList<Document> getDocument(){
 		return this._documents;

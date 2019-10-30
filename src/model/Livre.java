@@ -6,7 +6,7 @@ public class Livre extends Document {
 	
 	
 	public Livre(String id,String nomDocument, String createurDocument, int nombrePages ) {
-		super(id,nomDocument, createurDocument);
+		super(id,nomDocument, createurDocument,"Livre");
 		_nombrePages = nombrePages;
 		// TODO Auto-generated constructor stub
 	}
@@ -52,6 +52,13 @@ public class Livre extends Document {
 	public String getIdDocument() {
 		// TODO Auto-generated method stub
 		return _idDocument;
+	}
+
+
+	@Override
+	public String getTypeDocument() {
+		// TODO Auto-generated method stub
+		return "Livre";
 	}
 	
 	
