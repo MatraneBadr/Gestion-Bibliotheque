@@ -50,10 +50,13 @@ public class Application {
 				 auteurDocument = sc.next();
 				 System.out.println("Quel est la durée de votre "+typeTravail);
 				 dureeDocument = sc.nextInt();
+				 break;
 			case 2:
 				 System.out.println("Quel est le "+typeTravail+"que vous souhaitez supprimer?");
+				 break;
 			case 3:
 				System.out.println("Quel est le "+typeTravail+" que vous voulez modifier");
+				break;
 		 
 		}
 				

@@ -6,8 +6,9 @@ public class Main {
 	
 	public static void main(String [] args) {
 		System.out.println("Hello World");
-		//GestionBibliotheque gest = new GestionBibliotheque();
+		GestionBibliotheque gest = new GestionBibliotheque();
 		Application app = new Application();
+		gest.getDocument();
 		
 		app.lancementApplication();
 		

@@ -39,6 +39,10 @@ public class GestionBibliotheque {
 			
 				
 	}
+	
+	public ArrayList<Document> getDocument(){
+		return this._documents;
+	}
 }
 	
 		
