@@ -38,7 +38,7 @@ public class Application {
 				 nomDocument = sc.nextLine();
 				 System.out.println("Qui est l'auteur de votre "+typeTravail);
 				 auteurDocument = sc.nextLine();
-				 if(typeTravail == "livre")
+				 if(typeTravail == "Livre")
 					 System.out.println("Quel est le nombre de page de votre "+typeTravail);
 				 else
 					 System.out.println("Quel est la durée de votre "+typeTravail);
