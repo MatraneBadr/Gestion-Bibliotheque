@@ -2,7 +2,6 @@ package controller;
 
 import java.util.Scanner;
 
-import View.MenuAdmin;
 
 public class Application {
 	private String _choice;
@@ -12,7 +11,7 @@ public class Application {
 	}
 	
 	public void lancementApplication() {
-		/*
+		
 		_choice = travailSur();
 		
 		switch(_choice) {
@@ -29,9 +28,7 @@ public class Application {
 				System.out.println("Je n'ai pas compris");
 				break;
 			
-		}*/
-		MenuAdmin menu=new MenuAdmin();
-		menu.setVisible(true);
+		}
 	}
 	
 	public void choixCRUD(String typeTravail) {
