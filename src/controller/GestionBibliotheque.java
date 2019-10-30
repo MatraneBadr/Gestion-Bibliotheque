@@ -43,10 +43,63 @@ public class GestionBibliotheque {
 		
 	}
 	
+	public void  modifierDoc(ArrayList<Document> doc, String typeDocument) {
+			
+		String new_name;
+		String ID_en;
+		int choice;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Quel est le document que vous souhaiter modifier : (Taper l'ID) ");		
+		ID_en = sc.nextLine();	
+		parcourirDocID(doc, ID_en);
+		
+		System.out.println("");
+		System.out.println("Quel parametre voulez-vous modifier  : ");
+		System.out.println("1 - nom du document");
+		System.out.println("2 - createur");
+		choice = sc.nextInt();	
+		System.out.println("");
+		
+		
+		switch (choice) {
+		case 1:
+			System.out.println("Quel est le nouveau nom du document :  ");
+			new_name = sc.next();
+			
+			for(int i = 0 ; i<doc.size();i++) {
+				if(doc.get(i).getIdDocument().equals(ID_en)) {
+					doc.get(i).setNomDocument(new_name);
+					System.out.println("ID: "+doc.get(i).getIdDocument()+ ", Nom: "+doc.get(i).getNomDocument() +", Createur : "+ doc.get(i).getCreateurDocument());
+				}
+			}			
+			break;
+		case 2:
+			System.out.println("Quel est le nouveau createur :  ");
+			new_name = sc.next();
+			for(int i = 0 ; i<doc.size();i++) {
+				if(doc.get(i).getIdDocument().equals(ID_en)) {
+					doc.get(i).setCreateurDocument(new_name);
+					System.out.println("ID: "+doc.get(i).getIdDocument()+ ", Nom: "+doc.get(i).getNomDocument() +", Createur : "+ doc.get(i).getCreateurDocument());
+				}
+			}			
+			break;
+		default:
+			System.out.println("commande non reconnue ");
+			break;
+		} 
+	}
+	
 	public void parcourirDoc(ArrayList<Document> doc, String typeDocument) {
 		for(int i = 0 ; i<doc.size();i++) {
 			if(doc.get(i).getTypeDocument().equals(typeDocument))
 				System.out.println("ID: "+doc.get(i).getIdDocument()+ " Nom: "+doc.get(i).getNomDocument());
+		}
+	}
+	
+	public void parcourirDocID(ArrayList<Document> doc, String ID) {
+		for(int i = 0 ; i<doc.size();i++) {
+			if(doc.get(i).getIdDocument().equals(ID))
+				System.out.println("ID: "+doc.get(i).getIdDocument()+ ", Nom: "+doc.get(i).getNomDocument() +", Createur : "+ doc.get(i).getCreateurDocument());
 		}
 	}
 	
