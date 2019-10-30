@@ -14,12 +14,12 @@ public class GestionBibliotheque {
 		
 		
 	}
+	
 // Méthode de gestion de bibliotheque	
 	public void gestionBibliotheque() {
 		
 	}
 
-	
 	public void ajouterDoc(ArrayList<Document> doc, String typeDoc, String nomDoc, String auteurDoc, int dureeDoc) {
 		String id;
 		int i = doc.size()+1;
@@ -42,6 +42,7 @@ public class GestionBibliotheque {
 		}
 		
 	}
+	
 	public void parcourirDoc(ArrayList<Document> doc, String typeDocument) {
 		for(int i = 0 ; i<doc.size();i++) {
 			if(doc.get(i).getTypeDocument().equals(typeDocument))

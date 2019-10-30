@@ -53,8 +53,7 @@ public class Application {
 				break;
 		 
 		}
-				
-		
+		gest.parcourirAll(gest.getDocument());	
 	}
 	
 	public void travailSur() {
