@@ -8,41 +8,101 @@ import model.*;
 
 public class GestionBibliotheque {
 	private ArrayList<Document> _documents;
-	int idLivre = 0;
-	boolean quitter = false;
 	
 	public GestionBibliotheque() {
 		_documents = new ArrayList<Document>();
 		
 		
 	}
-	
+// Méthode de gestion de bibliotheque	
 	public void gestionBibliotheque() {
 		
 	}
+
 	
 	public void ajouterDoc(ArrayList<Document> doc, String typeTravail, String nomDoc, String auteurDoc, int dureeDoc) {
+		String id;
+		int i = doc.size()+1;
 		switch(typeTravail) {
 			case "livre":
-				_documents.add(new Livre(nomDoc,auteurDoc,dureeDoc));
+				id = "L"+i;
+				_documents.add(new Livre(id,nomDoc,auteurDoc,dureeDoc));
 				break;
 			case "CD":
-				_documents.add(new CD(nomDoc,auteurDoc));
+				id ="C"+i;
+				_documents.add(new CD(id,nomDoc,auteurDoc,dureeDoc));
 				break;
 			case "DVD":
-				_documents.add(new DVD(nomDoc,auteurDoc));
+				id = "D"+i;
+				_documents.add(new DVD(id,nomDoc,auteurDoc,dureeDoc));
 				break;
 			default:
 				System.out.println("Pas compris");
 				break;
 		}
-			
-				
+		
+	}
+	public void parcourirDoc(ArrayList<Document> doc) {
+		for(int i = 0 ; i<doc.size();i++) {
+			System.out.println("Id: "+doc.get(i).getIdDocument()+" Auteur: "+doc.get(i).getCreateurDocument()+
+					" Nom: "+doc.get(i).getNomDocument());
+		}
 	}
 	
+	public void remplirList(ArrayList<Document> doc) {
+		for(int i = 0 ; i<10 ; i++) {
+			doc.add(new Livre("L"+i,"NomLivre"+i,"AuteurLivre"+i,1));
+			doc.add(new CD("C"+i,"NomCd"+i,"AuteurCD"+i,1));
+			doc.add(new DVD("D"+i,"NomDVD"+i,"AuteurDVD"+i,1));
+			
+		}
+	}
+	
+	public void parcourirLivre(ArrayList<Document> doc) {
+		for(int i = 0 ; i<doc.size();i++) {
+			if(doc.get(i) instanceof Livre)
+				System.out.println("ID: "+doc.get(i).getIdDocument()+" Nom: "+doc.get(i).getNomDocument());
+		}
+	}
+	
+	public void parcourirDVD(ArrayList<Document> doc) {
+		for(int i = 0 ; i<doc.size();i++) {
+			if(doc.get(i) instanceof DVD) 
+				System.out.println("Id "+doc.get(i).getIdDocument()+" Nom: "+doc.get(i).getNomDocument());
+			
+		}
+	}
+	
+	public void parcourirCD(ArrayList<Document> doc) {
+		for(int i = 0 ; i<doc.size();i++) {
+			if(doc.get(i) instanceof CD)
+			System.out.println("ID: "+doc.get(i).getIdDocument()+" Nom: "+doc.get(i).getNomDocument());
+		}
+	}
+	
+	public void supprimerDoc(ArrayList<Document> doc) {
+		String index;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Quel est le document que vous souhaiter supprimer:(Taper l'ID) ");
+		index = sc.nextLine();
+		for(int i = 0; i<doc.size();i++) {
+			if(doc.get(i).getIdDocument().equals(index))
+				doc.remove(i);
+		}
+		
+	}
+	
+	
+
+			
+				
+	
+// GETTER	
 	public ArrayList<Document> getDocument(){
 		return this._documents;
 	}
+// Setter
+	
 }
 	
 		

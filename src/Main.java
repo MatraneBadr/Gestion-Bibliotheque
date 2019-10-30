@@ -6,9 +6,14 @@ public class Main {
 	
 	public static void main(String [] args) {
 
-		Application app = new Application();
+		//Application app = new Application();
 		
-		app.lancementApplication();
+		//app.lancementApplication();
+		GestionBibliotheque gest = new GestionBibliotheque();
+		gest.remplirList(gest.getDocument());
+		gest.parcourirCD(gest.getDocument());
+		gest.supprimerDoc(gest.getDocument());
+		gest.parcourirCD(gest.getDocument());
 		
 		
 		

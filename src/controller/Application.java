@@ -4,31 +4,18 @@ import java.util.Scanner;
 
 
 public class Application {
-	private String _choice;
+	private GestionBibliotheque gest;
 	
 	public Application() {
+		
+		gest = new GestionBibliotheque();
 		
 	}
 	
 	public void lancementApplication() {
 		
-		_choice = travailSur();
-		
-		switch(_choice) {
-			case "livre":
-				choixCRUD(_choice);
-				break;
-			case "CD":
-				choixCRUD(_choice);
-				break;
-			case "DVD":
-				choixCRUD(_choice);
-				break;
-			default:
-				System.out.println("Je n'ai pas compris");
-				break;
+		travailSur();
 			
-		}
 	}
 	
 	public void choixCRUD(String typeTravail) {
@@ -46,17 +33,20 @@ public class Application {
 		switch(choice) {
 			case 1:
 				 System.out.println("Quel est le nom de votre "+typeTravail);
-				 nomDocument = sc.next();
+				 sc.nextLine();
+				 nomDocument = sc.nextLine();
 				 System.out.println("Qui est l'auteur de votre "+typeTravail);
-				 auteurDocument = sc.next();
-				 System.out.println("Quel est la durée de votre "+typeTravail);
+				 auteurDocument = sc.nextLine();
+				 if(typeTravail == "livre")
+					 System.out.println("Quel est le nombre de page de votre "+typeTravail);
+				 else
+					 System.out.println("Quel est la durée de votre "+typeTravail);
 				 dureeDocument = sc.nextInt();
+				 //gest.ajouterDoc(gest.getDocument(), typeTravail, nomDocument, auteurDocument, dureeDocument);
 				 break;
 			case 2:
-				 System.out.println("Quel est le "+typeTravail+"que vous souhaitez supprimer?");
 				 break;
 			case 3:
-				System.out.println("Quel est le "+typeTravail+" que vous voulez modifier");
 				break;
 		 
 		}
@@ -64,7 +54,7 @@ public class Application {
 		
 	}
 	
-	public String travailSur() {
+	public void travailSur() {
 		int choice;
 		Scanner sc = new Scanner(System.in);
 		
@@ -75,13 +65,17 @@ public class Application {
 		choice = sc.nextInt();
 		switch(choice) {
 			case 1:
-				return "livre";
+				choixCRUD("livre");
+				break;
 			case 2:
-				return "CD";
+				choixCRUD("CD");
+				break;
 			case 3:
-				return "DVD";
+				choixCRUD("DVD");
+				break;
 			default:
-				return "";
+				System.out.println("Commande inconnue");
+				break;
 				
 		}
 	}
