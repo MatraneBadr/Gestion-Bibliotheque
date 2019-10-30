@@ -9,6 +9,7 @@ public class Application {
 	public Application() {
 		
 		gest = new GestionBibliotheque();
+		gest.remplirList(gest.getDocument());
 		
 	}
 	
@@ -42,9 +43,11 @@ public class Application {
 				 else
 					 System.out.println("Quel est la durée de votre "+typeTravail);
 				 dureeDocument = sc.nextInt();
-				 //gest.ajouterDoc(gest.getDocument(), typeTravail, nomDocument, auteurDocument, dureeDocument);
+				 gest.ajouterDoc(gest.getDocument(), typeTravail, nomDocument, auteurDocument, dureeDocument);
 				 break;
 			case 2:
+				gest.parcourirDoc(gest.getDocument(), typeTravail);
+				gest.supprimerDoc(gest.getDocument());
 				 break;
 			case 3:
 				break;
@@ -65,7 +68,7 @@ public class Application {
 		choice = sc.nextInt();
 		switch(choice) {
 			case 1:
-				choixCRUD("livre");
+				choixCRUD("Livre");
 				break;
 			case 2:
 				choixCRUD("CD");

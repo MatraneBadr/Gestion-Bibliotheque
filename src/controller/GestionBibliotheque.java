@@ -24,7 +24,7 @@ public class GestionBibliotheque {
 		String id;
 		int i = doc.size()+1;
 		switch(typeDoc) {
-			case "livre":
+			case "Livre":
 				id = "L"+i;
 				_documents.add(new Livre(id,nomDoc,auteurDoc,dureeDoc));
 				break;
