@@ -13,6 +13,7 @@ public class Application {
 		
 	}
 	
+	
 	public void lancementApplication() {
 		
 		travailSur();
@@ -50,6 +51,8 @@ public class Application {
 				gest.supprimerDoc(gest.getDocument());
 				 break;
 			case 3:
+				gest.parcourirDoc(gest.getDocument(), typeTravail);
+				gest.modifierDoc(gest.getDocument(),typeTravail);
 				break;
 		 
 		}
