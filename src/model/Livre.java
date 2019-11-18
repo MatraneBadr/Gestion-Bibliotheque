@@ -2,12 +2,10 @@ package model;
 
 public class Livre extends Document {
 
-	private int _nombrePages;
 	
 	
 	public Livre(String id,String nomDocument, String createurDocument, int nombrePages ) {
-		super(id,nomDocument, createurDocument,"Livre");
-		_nombrePages = nombrePages;
+		super(id,nomDocument, createurDocument,"Livre",nombrePages);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -38,13 +36,15 @@ public class Livre extends Document {
 		this._createurDocument = createurDocument;
 		
 	}
-
-	public int getNombrePages() {
-		return _nombrePages;
+	
+	@Override
+	public int getDureeDocument() {
+		return _dureeDocument;
 	}
-
-	public void setNombrePages(int nombrePages) {
-		this._nombrePages = nombrePages;
+	
+	@Override
+	public void setDureeDocument(int nombrePage) {
+		this._dureeDocument = nombrePage;
 	}
 
 

@@ -1,3 +1,4 @@
+/*
 package view;
 
 import java.awt.BorderLayout;
@@ -15,6 +16,7 @@ public class MenuAdmin extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -31,6 +33,7 @@ public class MenuAdmin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+/*
 	public MenuAdmin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -44,3 +47,5 @@ public class MenuAdmin extends JFrame {
 		contentPane.add(btnHassan);
 	}
 }
+*/
+

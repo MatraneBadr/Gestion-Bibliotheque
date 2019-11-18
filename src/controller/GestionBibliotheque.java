@@ -41,21 +41,24 @@ public class GestionBibliotheque {
 		
 	}
 	
-// Cette fonction permet de modifier un document
+// Modification d'un document
 	public void  modifierDoc(ArrayList<Document> doc, String typeDocument) {
 			
-		String new_name;
-		String ID_en;
+		String newName;
+		String idModification;
 		int choice;
+		int newDuree;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Quel est le document que vous souhaiter modifier : (Taper l'ID) ");		
-		ID_en = sc.nextLine();	
-		findDocID(doc, ID_en);
 		
-		System.out.println("");
+		System.out.println("Quel est le document que vous souhaiter modifier : (Taper l'ID) ");		
+		idModification = sc.nextLine();	
+		findDocID(doc, idModification);
+		
+		System.out.println();
 		System.out.println("Quel parametre voulez-vous modifier  : ");
-		System.out.println("1 - nom du document");
-		System.out.println("2 - createur");
+		System.out.println("1 - Le nom du document");
+		System.out.println("2 - Le créateur du document");
+		System.out.println("3 - Le nombre de page");
 		choice = sc.nextInt();	
 		System.out.println("");
 		
@@ -64,24 +67,35 @@ public class GestionBibliotheque {
 		case 1:
 			System.out.println("Quel est le nouveau nom du document :  ");
 			sc.nextLine();
-			new_name = sc.nextLine();
+			newName = sc.nextLine();
 			
 			for(int i = 0 ; i<doc.size();i++) {
-				if(doc.get(i).getIdDocument().equals(ID_en)) {
-					doc.get(i).setNomDocument(new_name);
+				if(doc.get(i).getIdDocument().equals(idModification)) {
+					doc.get(i).setNomDocument(newName);
 					System.out.println("ID: "+doc.get(i).getIdDocument()+ ", Nom: "+doc.get(i).getNomDocument() +", Createur : "+ doc.get(i).getCreateurDocument());
 				}
 			}			
 			break;
 		case 2:
 			System.out.println("Quel est le nouveau createur :  ");
-			new_name = sc.next();
+			newName = sc.nextLine();
 			for(int i = 0 ; i<doc.size();i++) {
-				if(doc.get(i).getIdDocument().equals(ID_en)) {
-					doc.get(i).setCreateurDocument(new_name);
+				if(doc.get(i).getIdDocument().equals(idModification)) {
+					doc.get(i).setCreateurDocument(newName);
 					System.out.println("ID: "+doc.get(i).getIdDocument()+ ", Nom: "+doc.get(i).getNomDocument() +", Createur : "+ doc.get(i).getCreateurDocument());
 				}
 			}			
+			break;
+		case 3:
+			System.out.println("Quel est le nombre de page de votre document ? ");
+			newDuree = sc.nextInt();
+			for(int i = 0 ; i<doc.size();i++) {
+				if(doc.get(i).getIdDocument().equals(idModification)) {
+					doc.get(i).setDureeDocument(newDuree);
+					System.out.println("ID: "+doc.get(i).getIdDocument()+ ", Nom: "+doc.get(i).getNomDocument() +", Createur : "+ doc.get(i).getCreateurDocument()+
+							", Durée:"+doc.get(i).getDureeDocument());
+				}
+			}
 			break;
 		default:
 			System.out.println("commande non reconnue ");
@@ -89,7 +103,7 @@ public class GestionBibliotheque {
 		} 
 	}
 	
-// Parcourir document en fonction du type
+// Parcourir documents en fonction du type
 	public void parcourirDoc(ArrayList<Document> doc, String typeDocument) {
 		for(int i = 0 ; i<doc.size();i++) {
 			if(doc.get(i).getTypeDocument().equals(typeDocument))
@@ -105,12 +119,15 @@ public class GestionBibliotheque {
 		}
 	}
 	
+// Affichage de tout les document
 	public void afficherAll(ArrayList<Document> doc) {
 		for(int i = 0 ; i<doc.size();i++) {
-			System.out.println("ID: "+doc.get(i).getIdDocument()+ " Nom: "+doc.get(i).getNomDocument());
+			System.out.println("ID: "+doc.get(i).getIdDocument()+ " Nom: "+doc.get(i).getNomDocument()+ 
+					" Durée du Document "+doc.get(i).getDureeDocument());
 		}
 	}
 	
+// Permet de remplir notre programme avec des documents à son lancement
 	public void remplirList(ArrayList<Document> doc) {
 		for(int i = 0 ; i<10 ; i++) {
 			doc.add(new Livre("L"+i,"NomLivre"+i,"AuteurLivre"+i,1));

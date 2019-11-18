@@ -1,12 +1,11 @@
 package model;
 
 public class DVD extends Document{
-	private int _dureeMin;
+	
 	
 
 	public DVD(String id,String nomDocument, String createurDocument,int duree) {
-		super(id,nomDocument, createurDocument,"DVD");
-		_dureeMin = duree;
+		super(id,nomDocument, createurDocument,"DVD",duree);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -46,12 +45,14 @@ public class DVD extends Document{
 		return _idDocument;
 	}
 	
+	@Override
 	public int getDureeDocument() {
-		return _dureeMin;
+		return _dureeDocument;
 	}
 	
-	public void setDureeDoc(int duree) {
-		this._dureeMin = duree;
+	@Override
+	public void setDureeDocument(int dureeDocument) {
+		this._dureeDocument = dureeDocument;
 	}
 
 

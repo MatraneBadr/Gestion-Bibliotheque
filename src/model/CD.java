@@ -1,11 +1,10 @@
 package model;
 
 public class CD extends Document {
-	int _dureeMin;
+
 
 	public CD(String id,String nomDocument, String createurDocument,int duree) {
-		super(id,nomDocument, createurDocument,"CD");
-		_dureeMin = duree;
+		super(id,nomDocument, createurDocument,"CD",duree);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -39,19 +38,14 @@ public class CD extends Document {
 
 
 
+
 	@Override
 	public String getIdDocument() {
 		// TODO Auto-generated method stub
 		return _idDocument;
 	}
 	
-	public int getDureeDocument() {
-		return _dureeMin;
-	}
 	
-	public void setDureeDoc(int duree) {
-		this._dureeMin = duree;
-	}
 
 
 
@@ -59,6 +53,20 @@ public class CD extends Document {
 	public String getTypeDocument() {
 		// TODO Auto-generated method stub
 		return "CD";
+	}
+
+
+
+	@Override
+	public void setDureeDocument(int dureeDocument) {
+		// TODO Auto-generated method stub
+		this._dureeDocument = dureeDocument;
+		
+	}
+	
+	@Override
+	public int getDureeDocument() {
+		return _dureeDocument;
 	}
 	
 
