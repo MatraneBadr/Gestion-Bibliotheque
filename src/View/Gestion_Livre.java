@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import model.Livre;
+import Model.Livre;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

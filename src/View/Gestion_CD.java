@@ -21,8 +21,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 
-import model.Document;
-import model.CD;
+import Model.Document;
+import Model.CD;
 
 public class Gestion_CD extends JFrame {
 
