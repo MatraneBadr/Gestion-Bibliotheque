@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public abstract class Document {
 	protected String _nomDocument;

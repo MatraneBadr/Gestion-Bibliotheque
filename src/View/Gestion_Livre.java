@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Model.Livre;
+import model.Livre;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -166,7 +166,13 @@ public class Gestion_Livre extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				row=table.getSelectedRow();
-				
+				String nomdoc=table.getModel().getValueAt(row, 1).toString();
+				String nomAut=table.getModel().getValueAt(row, 0).toString();
+				String nbPage=table.getModel().getValueAt(row, 2).toString();
+
+				textField.setText(nomdoc);
+				textField_1.setText(nomAut);
+				textField_2.setText(nbPage);
 			}
 		});
 		scrollPane.setViewportView(table);
