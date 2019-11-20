@@ -1,27 +1,26 @@
-/*
-package view;
+package View;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 
-public class MenuAdmin extends JFrame {
+public class Emprunt_livres_Films extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MenuAdmin frame = new MenuAdmin();
+					Emprunt_livres_Films frame = new Emprunt_livres_Films();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,19 +32,25 @@ public class MenuAdmin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-/*
-	public MenuAdmin() {
+	public Emprunt_livres_Films() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 1000, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(380, 209, 200, 22);
+		contentPane.add(comboBox);
+		comboBox.addItem("Selectionner");
+		comboBox.addItem("Livres");
+		comboBox.addItem("Films");
+		comboBox.addItem("Musiques");
 		
-		JButton btnHassan = new JButton("hassan");
-		btnHassan.setBounds(153, 126, 89, 23);
-		contentPane.add(btnHassan);
+		
+		JButton btnValider = new JButton("Valider");
+		btnValider.setBounds(440, 251, 89, 23);
+		contentPane.add(btnValider);
 	}
-}
-*/
 
+}
