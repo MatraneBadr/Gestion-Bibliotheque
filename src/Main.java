@@ -2,18 +2,11 @@ import controller.GestionBibliotheque;
 import controller.Application;
 
 public class Main {
-	
+
 	
 	public static void main(String [] args) {
-
 		Application app = new Application();
-		
-		app.lancementApplication();
-		
-		
-		
-		
-		
+		app.lancementApplication();		
 	}
 
 }

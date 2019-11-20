@@ -4,33 +4,57 @@ import java.util.Scanner;
 
 
 public class Application {
-	private String _choice;
+	private GestionBibliotheque gest;
 	
+	// Création automatique d'un objet Gestion bibliothèque
 	public Application() {
+		gest = new GestionBibliotheque();
+		gest.remplirList(gest.getDocument());
 		
 	}
 	
 	public void lancementApplication() {
 		
-		_choice = travailSur();
+		travailSur();
+			
+	}
+	
+	public void travailSur() {
 		
-		switch(_choice) {
-			case "livre":
-				choixCRUD(_choice);
+		operationCourante();
+				
+	}
+	// l'USER choisi ce qu'il veut faire
+	public void operationCourante() {
+		int choice;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Bonjour bienvenue dans le logiciel de gestion de bibliothèque. Sur quoi souhaitez vous travailler?");
+		System.out.println("LISTE DES DOCUMENTS ENREGISTRE");
+		gest.afficherAll(gest.getDocument());
+		System.out.println("------FIN------");
+		System.out.println("1 - Livres");
+		System.out.println("2 - CD's");
+		System.out.println("3 - DVD's");
+		choice = sc.nextInt();
+		switch(choice) {
+			case 1:
+				choixCRUD("Livre");
 				break;
-			case "CD":
-				choixCRUD(_choice);
+			case 2:
+				choixCRUD("CD");
 				break;
-			case "DVD":
-				choixCRUD(_choice);
+			case 3:
+				choixCRUD("DVD");
 				break;
 			default:
-				System.out.println("Je n'ai pas compris");
+				System.out.println("Commande inconnue");
 				break;
-			
+		
 		}
 	}
 	
+	// Choix CRUD oriente l'utilisateur
 	public void choixCRUD(String typeTravail) {
 		int choice;
 		String nomDocument,auteurDocument;
@@ -46,44 +70,29 @@ public class Application {
 		switch(choice) {
 			case 1:
 				 System.out.println("Quel est le nom de votre "+typeTravail);
-				 nomDocument = sc.next();
+				 sc.nextLine();
+				 nomDocument = sc.nextLine();
 				 System.out.println("Qui est l'auteur de votre "+typeTravail);
-				 auteurDocument = sc.next();
-				 System.out.println("Quel est la durée de votre "+typeTravail);
+				 auteurDocument = sc.nextLine();
+				 if(typeTravail == "Livre")
+					 System.out.println("Quel est le nombre de page de votre "+typeTravail);
+				 else
+					 System.out.println("Quel est la durée de votre "+typeTravail);
 				 dureeDocument = sc.nextInt();
+				 gest.ajouterDoc(gest.getDocument(), typeTravail, nomDocument, auteurDocument, dureeDocument);
 				 break;
 			case 2:
-				 System.out.println("Quel est le "+typeTravail+"que vous souhaitez supprimer?");
+				gest.parcourirDoc(gest.getDocument(), typeTravail);
+				gest.supprimerDoc(gest.getDocument());
 				 break;
 			case 3:
-				System.out.println("Quel est le "+typeTravail+" que vous voulez modifier");
+				gest.parcourirDoc(gest.getDocument(), typeTravail);
+				gest.modifierDoc(gest.getDocument(),typeTravail);
 				break;
 		 
 		}
-				
-		
+		gest.afficherAll(gest.getDocument());	
 	}
 	
-	public String travailSur() {
-		int choice;
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Bonjour bienvenue dans le logiciel de gestion de bibliothèque. Sur quoi souhaitez vous travailler?");
-		System.out.println("1 - Livres");
-		System.out.println("2 - CD's");
-		System.out.println("3 - DVD's");
-		choice = sc.nextInt();
-		switch(choice) {
-			case 1:
-				return "livre";
-			case 2:
-				return "CD";
-			case 3:
-				return "DVD";
-			default:
-				return "";
-				
-		}
-	}
 
 }
