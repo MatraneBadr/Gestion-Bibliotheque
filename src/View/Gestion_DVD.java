@@ -28,9 +28,9 @@ public class Gestion_DVD extends JFrame {
 
 	private JPanel contentPane;
 	
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textFieldCreateur;
+	private JTextField textFieldNomOeuvre;
+	private JTextField textFieldDureeOeuvre;
 	
 	JTable table;
 	DefaultTableModel model;
@@ -69,28 +69,28 @@ public class Gestion_DVD extends JFrame {
 		contentPane.setLayout(null);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(183, 76, 166, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldCreateur = new JTextField();
+		textFieldCreateur.setBounds(183, 76, 166, 20);
+		contentPane.add(textFieldCreateur);
+		textFieldCreateur.setColumns(10);
 		
 		JLabel lblNomDVD = new JLabel("Nom DVD");
 		lblNomDVD.setBounds(64, 79, 109, 14);
 		contentPane.add(lblNomDVD);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(183, 149, 166, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldNomOeuvre = new JTextField();
+		textFieldNomOeuvre.setBounds(183, 149, 166, 20);
+		contentPane.add(textFieldNomOeuvre);
+		textFieldNomOeuvre.setColumns(10);
 		
 		JLabel lblNomAuteur = new JLabel("Nom Createur");
 		lblNomAuteur.setBounds(64, 152, 109, 14);
 		contentPane.add(lblNomAuteur);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(183, 227, 166, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textFieldDureeOeuvre = new JTextField();
+		textFieldDureeOeuvre.setBounds(183, 227, 166, 20);
+		contentPane.add(textFieldDureeOeuvre);
+		textFieldDureeOeuvre.setColumns(10);
 		
 		JLabel lblNombreDePages = new JLabel("Duree");
 		lblNombreDePages.setBounds(64, 230, 119, 14);
@@ -102,10 +102,10 @@ public class Gestion_DVD extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				try {
 					
-					String nb=textField_2.getText().toString();
+					String nb=textFieldDureeOeuvre.getText().toString();
 					float nbPage=Float.parseFloat(nb);
-					dvd1.adddvd(textField.getText().toString(), textField_1.getText().toString(), nbPage);
-					JOptionPane.showMessageDialog(null, "DVD ajouté");
+					dvd1.adddvd(textFieldCreateur.getText().toString(), textFieldNomOeuvre.getText().toString(), nbPage);
+					JOptionPane.showMessageDialog(null, "DVD ajoutï¿½");
 					viderchamp();
 					dvd1.AfficheTab(model);
 					
@@ -120,9 +120,9 @@ public class Gestion_DVD extends JFrame {
 		btnModifier.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String nomDVD=textField.getText();
-				String nomAuteur=textField_1.getText();
-				float nbPage=Float.parseFloat(textField_2.getText());
+				String nomDVD=textFieldCreateur.getText();
+				String nomAuteur=textFieldNomOeuvre.getText();
+				float nbPage=Float.parseFloat(textFieldDureeOeuvre.getText());
 				
 			
 				dvd1.update(row, nomDVD, nomAuteur, nbPage);
@@ -142,7 +142,8 @@ public class Gestion_DVD extends JFrame {
 				model.removeRow(row);
 				dvd1.deletedvd(row);
 				model.setRowCount(0);
-				JOptionPane.showMessageDialog(null, "DVD supprimée");
+				JOptionPane.showMessageDialog(null, "DVD supprimï¿½e");
+				viderchamp();
 
 				dvd1.AfficheTab(model);
 			}
@@ -162,6 +163,13 @@ public class Gestion_DVD extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 		
 				row=table.getSelectedRow();
+				String nomDoc = table.getModel().getValueAt(row, 1).toString();
+				String auteurDoc = table.getModel().getValueAt(row, 0).toString();
+				String dureeDoc = table.getModel().getValueAt(row, 2).toString();
+				
+				textFieldCreateur.setText(nomDoc);
+				textFieldNomOeuvre.setText(auteurDoc);
+				textFieldDureeOeuvre.setText(dureeDoc);
 			}
 		});
 		scrollPane.setViewportView(table);
@@ -183,8 +191,8 @@ public class Gestion_DVD extends JFrame {
 	}
 	public void viderchamp()
 	{
-		textField.setText("");
-		textField_1.setText("");
-		textField_2.setText("");
+		textFieldCreateur.setText("");
+		textFieldNomOeuvre.setText("");
+		textFieldDureeOeuvre.setText("");
 	}
 }
