@@ -18,6 +18,9 @@ public class Livre extends Document {
 	
 		public Livre()
 		{}
+		public Livre(String nomDocument,String createurDocument)
+		{super("L",nomDocument,createurDocument ,"Livre");
+		_nombrePages = 100;}
 
 	public Livre(String id,String nomDocument, String createurDocument,int nombrePages ) {
 		super(id,nomDocument, createurDocument,"Livre");
@@ -125,7 +128,9 @@ public class Livre extends Document {
 	{
 		return listLivre.size();
 	}
-
+public ArrayList<Livre> getliste()
+{
+	return listLivre;}
 	public void setLivre(Livre livre) {
 		this.livre = livre;
 	}
@@ -158,5 +163,6 @@ public class Livre extends Document {
 		Object[] obj= {listLivre.get(i).getCreateurDocument(),listLivre.get(i).getNomDocument(),listLivre.get(i).getNombrePages()};
 		model.addRow(obj);
 	}
+	
 	
 }

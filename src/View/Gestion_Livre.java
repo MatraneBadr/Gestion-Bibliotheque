@@ -207,6 +207,16 @@ public class Gestion_Livre extends JFrame {
 		});
 		btnRechercher.setBounds(823, 52, 119, 23);
 		contentPane.add(btnRechercher);
+		JButton btnActualiser = new JButton("Actualiser");
+		btnActualiser.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			livre.AfficheTab(model);
+			textField_3.setText("");
+			}
+		});
+		btnActualiser.setBounds(606, 76, 109, 22);
+		contentPane.add(btnActualiser);
 		/*
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(606, 43, 355, 288);
