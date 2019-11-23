@@ -22,23 +22,24 @@ import javax.swing.table.DefaultTableModel;
 
 
 import Model.Document;
-import Model.CD;
+import Model.DVD;;
 
-public class Gestion_CD extends JFrame {
+public class Gestion_DVD extends JFrame {
 
 	private JPanel contentPane;
+	
 	private JTextField textFieldCreateur;
 	private JTextField textFieldNomOeuvre;
 	private JTextField textFieldDureeOeuvre;
-	private JTextField textFieldRechercheOeuvre;
 	
 	JTable table;
 	DefaultTableModel model;
-	CD cd1=new CD();
-	private String header []=new String[] {"Artiste","Titre de l'Album","Duree"};
-	 ArrayList<CD>cd;
-	private JTable table_1;
-	int row,col;
+	
+	DVD dvd1=new DVD();
+	private String header []=new String[] {"Nom Createur","Nom DVD","Duree"};
+	 ArrayList<DVD>DVD;
+	 private JTable table_1;
+	 int row,col;
 	/**
 	 * Launch the application.
 	 */
@@ -46,7 +47,7 @@ public class Gestion_CD extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Gestion_CD frame = new Gestion_CD();
+					Gestion_DVD frame = new Gestion_DVD();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,10 +59,9 @@ public class Gestion_CD extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Gestion_CD() {
+	public Gestion_DVD() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 500);
-		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -74,16 +74,16 @@ public class Gestion_CD extends JFrame {
 		contentPane.add(textFieldCreateur);
 		textFieldCreateur.setColumns(10);
 		
-		JLabel lblNomcd = new JLabel("Titre de l'album");
-		lblNomcd.setBounds(64, 79, 109, 14);
-		contentPane.add(lblNomcd);
+		JLabel lblNomDVD = new JLabel("Nom DVD");
+		lblNomDVD.setBounds(64, 79, 109, 14);
+		contentPane.add(lblNomDVD);
 		
 		textFieldNomOeuvre = new JTextField();
 		textFieldNomOeuvre.setBounds(183, 149, 166, 20);
 		contentPane.add(textFieldNomOeuvre);
 		textFieldNomOeuvre.setColumns(10);
 		
-		JLabel lblNomAuteur = new JLabel("Artiste");
+		JLabel lblNomAuteur = new JLabel("Nom Createur");
 		lblNomAuteur.setBounds(64, 152, 109, 14);
 		contentPane.add(lblNomAuteur);
 		
@@ -92,12 +92,9 @@ public class Gestion_CD extends JFrame {
 		contentPane.add(textFieldDureeOeuvre);
 		textFieldDureeOeuvre.setColumns(10);
 		
-		JLabel lblNombreDePages = new JLabel("Duree du CD (min)");
+		JLabel lblNombreDePages = new JLabel("Duree");
 		lblNombreDePages.setBounds(64, 230, 119, 14);
 		contentPane.add(lblNombreDePages);
-		
-		
-		
 		
 		JButton btnAjouter = new JButton("Ajouter");
 		btnAjouter.addMouseListener(new MouseAdapter() {
@@ -107,10 +104,10 @@ public class Gestion_CD extends JFrame {
 					
 					String nb=textFieldDureeOeuvre.getText().toString();
 					float nbPage=Float.parseFloat(nb);
-					cd1.addcd(textFieldCreateur.getText().toString(), textFieldNomOeuvre.getText().toString(), nbPage);
-					JOptionPane.showMessageDialog(null, "CD ajout�");
+					dvd1.adddvd(textFieldCreateur.getText().toString(), textFieldNomOeuvre.getText().toString(), nbPage);
+					JOptionPane.showMessageDialog(null, "DVD ajout�");
 					viderchamp();
-					cd1.AfficheTab(model);
+					dvd1.AfficheTab(model);
 					
 				}catch (Exception e1)
 				{e1.printStackTrace();}
@@ -119,49 +116,44 @@ public class Gestion_CD extends JFrame {
 		btnAjouter.setBounds(64, 330, 109, 23);
 		contentPane.add(btnAjouter);
 		
-		
 		JButton btnModifier = new JButton("Modifier");
 		btnModifier.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String nomcd=textFieldCreateur.getText();
+				String nomDVD=textFieldCreateur.getText();
 				String nomAuteur=textFieldNomOeuvre.getText();
 				float nbPage=Float.parseFloat(textFieldDureeOeuvre.getText());
 				
 			
-				cd1.update(row, nomcd, nomAuteur, nbPage);
+				dvd1.update(row, nomDVD, nomAuteur, nbPage);
 				model.setRowCount(0);
-				JOptionPane.showMessageDialog(null, "Le CD a été Modifié");
+				JOptionPane.showMessageDialog(null, "DVD Modifier");
 				viderchamp();
-				cd1.AfficheTab(model);
+				dvd1.AfficheTab(model);
 			}
 		});
 		btnModifier.setBounds(186, 330, 119, 23);
 		contentPane.add(btnModifier);
-		
 		
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				model.removeRow(row);
-				cd1.deletecd(row);
+				dvd1.deletedvd(row);
 				model.setRowCount(0);
-				JOptionPane.showMessageDialog(null, "cd supprim�e");
+				JOptionPane.showMessageDialog(null, "DVD supprim�e");
 				viderchamp();
-				cd1.AfficheTab(model);
+
+				dvd1.AfficheTab(model);
 			}
 		});
 		btnSupprimer.setBounds(315, 330, 129, 23);
 		contentPane.add(btnSupprimer);
 		
-		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(606, 97, 355, 288);
+		scrollPane.setBounds(606, 43, 355, 288);
 		contentPane.add(scrollPane);
-		
-		
-		
 		
 		JTable table = new JTable();
 		model=new DefaultTableModel(new Object[][] {},header);
@@ -178,7 +170,6 @@ public class Gestion_CD extends JFrame {
 				textFieldCreateur.setText(nomDoc);
 				textFieldNomOeuvre.setText(auteurDoc);
 				textFieldDureeOeuvre.setText(dureeDoc);
-				
 			}
 		});
 		scrollPane.setViewportView(table);
@@ -197,26 +188,7 @@ public class Gestion_CD extends JFrame {
 		button1.setIcon(new ImageIcon("C:\\Users\\badr\\Desktop\\Projet\\icons8-windows-10-50.png"));
 		button1.setBounds(10, 11, 46, 32);
 		contentPane.add(button1);
-		
-		textFieldRechercheOeuvre = new JTextField();
-		textFieldRechercheOeuvre.setBounds(606, 53, 154, 20);
-		contentPane.add(textFieldRechercheOeuvre);
-		textFieldRechercheOeuvre.setColumns(10);
-		
-		JButton btnRechercher = new JButton("Rechercher");
-		btnRechercher.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String OeuvreRecherche;
-				OeuvreRecherche = textFieldRechercheOeuvre.getText();
-				cd1.AfficheTab(model);
-			
-			}
-		});
-		btnRechercher.setBounds(823, 52, 119, 23);
-		contentPane.add(btnRechercher);
 	}
-	
-	
 	public void viderchamp()
 	{
 		textFieldCreateur.setText("");

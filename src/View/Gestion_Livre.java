@@ -31,9 +31,9 @@ import java.util.zip.DataFormatException;
 public class Gestion_Livre extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textFieldCreateur;
+	private JTextField textFieldNomOeuvre;
+	private JTextField textFieldDureeOeuvre;
 	
 	JTable table;
 	DefaultTableModel model;
@@ -73,28 +73,28 @@ public class Gestion_Livre extends JFrame {
 		contentPane.setLayout(null);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(183, 76, 166, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldCreateur = new JTextField();
+		textFieldCreateur.setBounds(183, 76, 166, 20);
+		contentPane.add(textFieldCreateur);
+		textFieldCreateur.setColumns(10);
 		
 		JLabel lblNomLivre = new JLabel("Nom Livre");
 		lblNomLivre.setBounds(64, 79, 109, 14);
 		contentPane.add(lblNomLivre);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(183, 149, 166, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldNomOeuvre = new JTextField();
+		textFieldNomOeuvre.setBounds(183, 149, 166, 20);
+		contentPane.add(textFieldNomOeuvre);
+		textFieldNomOeuvre.setColumns(10);
 		
 		JLabel lblNomAuteur = new JLabel("Nom Auteur");
 		lblNomAuteur.setBounds(64, 152, 109, 14);
 		contentPane.add(lblNomAuteur);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(183, 227, 166, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textFieldDureeOeuvre = new JTextField();
+		textFieldDureeOeuvre.setBounds(183, 227, 166, 20);
+		contentPane.add(textFieldDureeOeuvre);
+		textFieldDureeOeuvre.setColumns(10);
 		
 		JLabel lblNombreDePages = new JLabel("Nombre de pages");
 		lblNombreDePages.setBounds(64, 230, 119, 14);
@@ -106,12 +106,12 @@ public class Gestion_Livre extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				try {
 					
-					String nb=textField_2.getText().toString();
+					String nb=textFieldDureeOeuvre.getText().toString();
 					int nbPage=Integer.parseInt(nb);
 					
-					livre.addLivre(textField.getText().toString(), textField_1.getText().toString(), nbPage);
+					livre.addLivre(textFieldCreateur.getText().toString(), textFieldNomOeuvre.getText().toString(), nbPage);
 					
-					JOptionPane.showMessageDialog(null, "Livre ajouté");
+					JOptionPane.showMessageDialog(null, "Livre ajoutï¿½");
 					viderchamp();
 					livre.AfficheTab(model);
 					
@@ -126,9 +126,9 @@ public class Gestion_Livre extends JFrame {
 		btnModifier.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String nomlivre=textField.getText();
-				String nomAuteur=textField_1.getText();
-				int nbPage=Integer.parseInt(textField_2.getText());
+				String nomlivre=textFieldCreateur.getText();
+				String nomAuteur=textFieldNomOeuvre.getText();
+				int nbPage=Integer.parseInt(textFieldDureeOeuvre.getText());
 			
 				livre.update(row, nomlivre, nomAuteur, nbPage);
 				model.setRowCount(0);
@@ -147,8 +147,8 @@ public class Gestion_Livre extends JFrame {
 				model.removeRow(row);
 				livre.deleteLivre(row);
 				model.setRowCount(0);
-				JOptionPane.showMessageDialog(null, "Livre supprimée");
-
+				JOptionPane.showMessageDialog(null, "Livre supprimï¿½e");
+				viderchamp();
 				livre.AfficheTab(model);
 			}
 		});
@@ -170,9 +170,9 @@ public class Gestion_Livre extends JFrame {
 				String nomAut=table.getModel().getValueAt(row, 0).toString();
 				String nbPage=table.getModel().getValueAt(row, 2).toString();
 
-				textField.setText(nomdoc);
-				textField_1.setText(nomAut);
-				textField_2.setText(nbPage);
+				textFieldCreateur.setText(nomdoc);
+				textFieldNomOeuvre.setText(nomAut);
+				textFieldDureeOeuvre.setText(nbPage);
 			}
 		});
 		scrollPane.setViewportView(table);
@@ -250,8 +250,8 @@ public class Gestion_Livre extends JFrame {
 	}
 	public void viderchamp()
 	{
-		textField.setText("");
-		textField_1.setText("");
-		textField_2.setText("");
+		textFieldCreateur.setText("");
+		textFieldNomOeuvre.setText("");
+		textFieldDureeOeuvre.setText("");
 	}
 }

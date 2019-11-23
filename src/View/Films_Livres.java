@@ -59,9 +59,13 @@ public class Films_Livres extends JFrame {
 				if(type=="Livres")
 				{Gestion_Livre livre=new Gestion_Livre();
 				livre.setVisible(true);}
-				if(type=="Films")
+				if(type=="Musiques")
 				{Gestion_CD cd=new Gestion_CD();
 				cd.setVisible(true);}
+				if (type == "Films") {
+					Gestion_DVD dvd = new Gestion_DVD();
+					dvd.setVisible(true);
+				}
 			}
 		});
 		btnValider.setBounds(440, 251, 89, 23);
