@@ -151,7 +151,7 @@ public ArrayList<Livre> getliste()
 		{
 			System.out.println(listLivre.get(i).getNomDocument());
 			
-			if(listLivre.get(i).getNomDocument().equals(nom))
+			if(listLivre.get(i).getNomDocument().contains(nom))
 			{p=i;}
 			System.out.println(p);
 		}

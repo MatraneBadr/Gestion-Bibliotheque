@@ -111,7 +111,7 @@ public class Gestion_Livre extends JFrame {
 					
 					livre.addLivre(textFieldCreateur.getText().toString(), textFieldNomOeuvre.getText().toString(), nbPage);
 					
-					JOptionPane.showMessageDialog(null, "Livre ajoutï¿½");
+					JOptionPane.showMessageDialog(null, "Livre ajoutée");
 					viderchamp();
 					livre.AfficheTab(model);
 					
@@ -147,7 +147,7 @@ public class Gestion_Livre extends JFrame {
 				model.removeRow(row);
 				livre.deleteLivre(row);
 				model.setRowCount(0);
-				JOptionPane.showMessageDialog(null, "Livre supprimï¿½e");
+				JOptionPane.showMessageDialog(null, "Livre supprimer");
 				viderchamp();
 				livre.AfficheTab(model);
 			}
