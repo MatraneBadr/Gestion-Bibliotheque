@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+//import Projet.Authentification;
+//import Projet.MenuEtudiant;
 
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -57,11 +59,11 @@ public class Menu extends JFrame {
 			}
 		});
 		button.setIcon(new ImageIcon("C:\\Users\\badr\\Desktop\\Projet\\doc\\64x64.png"));
-		button.setBounds(150, 174, 119, 100);
+		button.setBounds(300, 174, 119, 100);
 		contentPane.add(button);
 		
 		JLabel lblLivres = new JLabel("Gestion Documents");
-		lblLivres.setBounds(150, 298, 138, 14);
+		lblLivres.setBounds(300, 298, 138, 14);
 		contentPane.add(lblLivres);
 		
 		JButton button_1 = new JButton("");
@@ -72,6 +74,21 @@ public class Menu extends JFrame {
 		JLabel lblEm = new JLabel("Emprunt");
 		lblEm.setBounds(629, 298, 138, 14);
 		contentPane.add(lblEm);
-		
+		JButton button_2 = new JButton("");
+		button_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				Authentification aut = new Authentification();
+				aut.setVisible(true);
+				Menu.this.setVisible(false);
+				//etatcon();
+			   
+			
+			}
+		});
+		button_2.setIcon(new ImageIcon("C:\\Users\\badr\\Desktop\\Projet\\logout (1).png"));
+		button_2.setBounds(903, 11, 57, 38);
+		contentPane.add(button_2);
 	}
 }
